@@ -341,7 +341,7 @@ http://www.tooplate.com/view/2080-minimax
 			<div class="col-md-12 col-sm-12">
 				<h2>Contact Us</h2>
 			</div>
-			<form action="#" method="post" role="form">
+			<form action="contact.php" method="post" role="form" id="contact-form">
 				<div class="col-md-1 col-sm-1"></div>
 				<div class="col-md-10 col-sm-10">
 					<div class="col-md-6 col-sm-6">
@@ -360,7 +360,7 @@ http://www.tooplate.com/view/2080-minimax
 						<p>For all Questions, Comments, or Concerns please contact us here.</p>
 					</div>
 					<div class="col-md-4 col-sm-4">
-						<input name="submit" type="submit" class="form-control" id="submit" value="SEND MESSAGE">
+						<button type="submit" class="form-control" id="submit" value="SEND MESSAGE">
 					</div>
 				</div>
 				<div class="col-md-1 col-sm-1"></div>
@@ -446,8 +446,9 @@ http://www.tooplate.com/view/2080-minimax
 <script src="js/custom.js"></script>
 <script>
 	/*
-	 * Xquisite Deal Calculator - Quickly display the prices
-	 * for the special packages depending on the the number of guest
+	 * Xquisite Lab Ajax Contact Form
+	 * By: Christopher Ortiz
+	 * http://www.xquisitelab.com
 	 */
 	$(document).ready(function(){
 	  $.ajax({
