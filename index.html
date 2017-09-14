@@ -41,7 +41,7 @@ http://www.tooplate.com/view/2080-minimax
 
 <!-- End facebook tag -->
 
-	
+
 <!-- navigation -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
@@ -64,7 +64,7 @@ http://www.tooplate.com/view/2080-minimax
 			</ul>
 		</div>
 	</div>
-</div>		
+</div>
 
 <!-- home section -->
 <div id="home">
@@ -178,7 +178,7 @@ http://www.tooplate.com/view/2080-minimax
 				<img src="images/team4.jpg" class="img-responsive" alt="team img">
 				<h3>Staff</h3>
 				<h4>Title</h4>
-			</div>			
+			</div>
 		</div>
 	</div>
 </div>
@@ -253,7 +253,7 @@ http://www.tooplate.com/view/2080-minimax
 			</div>
 		</div>
 	</div>
-</div>		
+</div>
 
 <!-- divider section -->
 <div class="container">
@@ -280,7 +280,7 @@ http://www.tooplate.com/view/2080-minimax
 						<small>Yelp review</small>
 					</div>
 					<ul>
-						<li>My Grandmother has been going to Home Avenue for about 4 months and she loves it! 
+						<li>My Grandmother has been going to Home Avenue for about 4 months and she loves it!
 							The staff has been extremely helpful since she began going and they have still maintained the same level of helpfulness as well as a tremendous amount of patience in working with all the other people that go.</li>
 						<li>Shannon D.</li>
 						<li><!--10 BASIC THEMES--></li>
@@ -399,8 +399,8 @@ http://www.tooplate.com/view/2080-minimax
 					<li><a href="#" class="fa fa-twitter"></a></li>
                     <li><a href="#" class="fa fa-yelp"></a></li>
 					<li><a href="#" class="fa fa-instagram"></a></li>
-					
-					
+
+
 				</ul>
 			</div>
 		</div>
@@ -423,8 +423,8 @@ http://www.tooplate.com/view/2080-minimax
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
-				<p>Copyright &copy; 2016 Minimax Digital Firm 
-                
+				<p>Copyright &copy; 2016 Minimax Digital Firm
+
                 - Design: <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Tooplate</a></p>
 			</div>
 		</div>
@@ -435,15 +435,33 @@ http://www.tooplate.com/view/2080-minimax
 <a href="#top" class="go-top"><i class="fa fa-angle-up"></i></a>
 
 
-<!-- javascript js -->	
+<!-- javascript js -->
 <script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>	
+<script src="js/bootstrap.min.js"></script>
 <script src="js/nivo-lightbox.min.js"></script>
 <script src="js/smoothscroll.js"></script>
 <script src="js/jquery.nav.js"></script>
 <script src="js/isotope.js"></script>
 <script src="js/imagesloaded.min.js"></script>
 <script src="js/custom.js"></script>
-
+<script>
+	/*
+	 * Xquisite Deal Calculator - Quickly display the prices
+	 * for the special packages depending on the the number of guest
+	 */
+	$(document).ready(function(){
+	  $.ajax({
+	      type: 'POST',
+	      url: 'contact.php',
+	      data: $(this).serialize(),
+	      success: function(data){
+	          $('#sent').html(data);
+	      },
+	      error: function(data){
+	          alert("There was a problem sending the email please try again!")
+	      }
+	  });
+	});
+</script>
 </body>
 </html>
