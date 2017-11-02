@@ -33,7 +33,7 @@ $mailer = new Swift_Mailer($transport);
 // Create a message
 $message = new Swift_Message();
 $message->setTo([ 'c.ortiz1216@gmail.com' => 'Home Avenue']);
-$message->setSubject( $user_input["message"]);
+$message->setSubject("Home Avenue Contact Form");
 $message->setBody("You're our best client ever.");
 $message->setFrom("c.ortiz@lausd.net", "John Doe");
 
