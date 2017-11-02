@@ -22,9 +22,22 @@ http://www.tooplate.com/view/2080-minimax
 	<link rel="stylesheet" href="css/nivo-lightbox.css">
 	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/screen.css">
+
+
+	<style>
+	#commentForm label {
+		width: 250px;
+	}
+	#commentForm label.error, #commentForm input.submit {
+		color: red;
+		margin-left: 253px;
+	}
+	</style>
 	<!-- google web font css -->
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600,700' rel='stylesheet' type='text/css'>
 
+	<!-- Scripts Here -->
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -37,7 +50,8 @@ http://www.tooplate.com/view/2080-minimax
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
 <!-- End facebook tag -->
 
@@ -169,11 +183,11 @@ http://www.tooplate.com/view/2080-minimax
 				<h3>Kathleen Pineda</h3>
 				<h4>Title</h4>
 			</div>
-			<!--<div class="col-md-3 col-sm-6">
+			<div class="col-md-3 col-sm-6">
 				<img src="images/team3.jpg" class="img-responsive" alt="team img">
 				<h3>Staff</h3>
 				<h4>Title</h4>
-			</div>-->
+			</div>
 			<div class="col-md-3 col-sm-6">
 				<img src="images/team4.jpg" class="img-responsive" alt="team img">
 				<h3>Staff</h3>
@@ -341,26 +355,26 @@ http://www.tooplate.com/view/2080-minimax
 			<div class="col-md-12 col-sm-12">
 				<h2>Contact Us</h2>
 			</div>
-			<form action="contact.php" method="post" role="form" id="contact-form">
+			<form action="contact.php" method="post" class="commentForm" role="form" id="commentForm">
 				<div class="col-md-1 col-sm-1"></div>
 				<div class="col-md-10 col-sm-10">
 					<div class="col-md-6 col-sm-6">
-						<input name="name" type="text" class="form-control" id="name" placeholder="Name">
+						<input name="name" type="text" class="form-control" id="name" placeholder="Name" required>
 				  	</div>
 					<div class="col-md-6 col-sm-6">
-						<input name="email" type="email" class="form-control" id="email" placeholder="Email">
+						<input name="email" type="email" class="form-control" id="email" placeholder="Email"  type="email" required>
 				  	</div>
                     <div class="col-md-12 col-sm-12">
-						<input name="subject" type="text" class="form-control" id="subject" placeholder="Subject">
+						<input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required>
 	    	  	  	</div>
 					<div class="col-md-12 col-sm-12">
-						<textarea name="message" rows="5" class="form-control" id="message" placeholder="Message"></textarea>
+						<textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" required></textarea>
 					</div>
 					<div class="col-md-8 col-sm-8">
 						<p>For all Questions, Comments, or Concerns please contact us here.</p>
 					</div>
 					<div class="col-md-4 col-sm-4">
-						<button type="submit" class="form-control" id="submit" value="SEND MESSAGE">
+						<input type="submit" class="form-control" id="submit" value="Submit">
 					</div>
 				</div>
 				<div class="col-md-1 col-sm-1"></div>
@@ -437,6 +451,7 @@ http://www.tooplate.com/view/2080-minimax
 
 <!-- javascript js -->
 <script src="js/jquery.js"></script>
+<script src="js/jquery.validate.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/nivo-lightbox.min.js"></script>
 <script src="js/smoothscroll.js"></script>
@@ -451,17 +466,24 @@ http://www.tooplate.com/view/2080-minimax
 	 * http://www.xquisitelab.com
 	 */
 	$(document).ready(function(){
-	  $.ajax({
-	      type: 'POST',
-	      url: 'contact.php',
-	      data: $(this).serialize(),
-	      success: function(data){
-	          $('#sent').html(data);
-	      },
-	      error: function(data){
-	          alert("There was a problem sending the email please try again!")
-	      }
-	  });
+
+		/* jQuery Validate */
+		$("#commentForm").validate({
+  		submitHandler: function(form) {
+				$.ajax({
+			      type: 'POST',
+			      url: 'contact.php',
+			      data: $(form).serialize(),
+			      success: function(data){
+								alert("Email was sent successfully!");
+								//$('#sent').html(data);
+			      },
+			      error: function(data){
+			          alert("There was a problem sending the email please try again!");
+			      }
+			  });
+  		}
+ 		});
 	});
 </script>
 </body>
