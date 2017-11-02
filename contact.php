@@ -37,6 +37,11 @@ $message->setSubject("Home Avenue Contact Form");
 $message->setBody("You're our best client ever.");
 $message->setFrom("c.ortiz@lausd.net", "John Doe");
 
-// Send the message
-$mailer->send($message);
+$result = $mailer->send($message);
+
+if ($result == 0){
+  echo "error";
+}else{
+  echo "success";
+}
 ?>
