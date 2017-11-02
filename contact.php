@@ -3,11 +3,11 @@
 require_once 'vendor/autoload.php';
 
 // Declare POST variables
-$sendTo = 'c.ortiz1216@gmail.com'
+$sendTo = 'c.ortiz1216@gmail.com';
 $input = $_POST;
 $name = $input["name"];
 $email = $input["email"];
-$subject = $input["subject"]
+$subject = $input["subject"];
 $body = $input["message"];
 
 // Create the Transport
